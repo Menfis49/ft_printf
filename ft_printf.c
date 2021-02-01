@@ -6,7 +6,7 @@
 /*   By: vazra <vazra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 12:50:04 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/01 13:13:08 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/01 14:56:40 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	ft_point(t_struct *tab)
 		tab->point_len = va_arg(tab->va, int);
 		tab->k++;
 	}
+	else if (tab->str[tab->k] == 'c')
+		tab->point_len = 1;
 	else
 	{
 		tab->point_len = ft_atoi_pf(tab->str + tab->k);
