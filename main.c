@@ -6,7 +6,7 @@
 /*   By: vazra <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 14:22:02 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/01 13:39:22 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/01 15:52:44 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	main(void)
 	ft_printf("X-tiret-12 =%-12Xok %s\n", 999, "ola");
 	printf("printf1 :%.c\n", 'a');
 	ft_printf("printf2 :%.c\n", 'a');
-	printf("test : %05%\n");
-	ft_printf("test : %05%\n");
+	printf("{%05.*d}\n", -15, 42);
+	ft_printf("{%05.*d}\n", -15, 42);
 
 	return (0);
 }

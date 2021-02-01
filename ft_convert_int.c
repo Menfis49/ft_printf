@@ -6,11 +6,12 @@
 /*   By: vazra <vazra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 12:53:26 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/01 13:13:36 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/01 15:57:42 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 void	ft_convert_int(t_struct *tab)
 {
@@ -42,6 +43,11 @@ void	ft_convert_int(t_struct *tab)
 	while (tab->zero == ' ' && tab->width && i < tab->width_len - tab->len && !tab->dash)
 	{
 		ft_putchar_pf(tab->zero, tab);
+		i++;
+	}
+	while (tab->zero == '0' && tab->point && tab->width && i < tab->width_len - tab->len && !tab->dash && tab->point_len < 0)
+	{
+		ft_putchar_pf('0', tab);
 		i++;
 	}
 	while (tab->zero == '0' && tab->point && tab->width && i < tab->width_len - tab->len && !tab->dash)
