@@ -6,7 +6,7 @@
 /*   By: vazra <vazra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 12:50:04 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/02 14:41:30 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/02 15:19:45 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	ft_point(t_struct *tab)
 {
 	tab->point = 1;
 	tab->k++;
+	while (tab->str[tab->k] == '0')
+		tab->k++;
 	if (tab->str[tab->k] == '*')
 	{
 		tab->point_len = va_arg(tab->va, int);
