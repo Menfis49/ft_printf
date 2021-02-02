@@ -6,7 +6,7 @@
 /*   By: vazra <vazra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 12:50:04 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/02 15:19:45 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/02 19:35:28 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,16 @@ void	ft_point(t_struct *tab)
 		tab->point_len = va_arg(tab->va, int);
 		tab->k++;
 	}
-	else if (tab->str[tab->k] == 'c')
-		tab->point_len = 1;
-	else if (tab->str[tab->k] == '%')
-		tab->point_len = 1;
 	else
 	{
 		tab->point_len = ft_atoi_pf(tab->str + tab->k);
 		while (tab->str[tab->k] >= '0' && tab->str[tab->k] <= '9')
 			tab->k++;
 	}
+	if (tab->point_len == 0 && tab->str[tab->k] == 'c')
+		tab->point_len = 1;
+	else if (tab->point_len == 0 && tab->str[tab->k] == '%')
+		tab->point_len = 1;
 }
 
 void	ft_flags(t_struct *tab)
