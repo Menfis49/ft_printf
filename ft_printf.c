@@ -6,7 +6,7 @@
 /*   By: vazra <vazra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 12:50:04 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/01 14:56:40 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/02 14:41:30 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	ft_point(t_struct *tab)
 		tab->k++;
 	}
 	else if (tab->str[tab->k] == 'c')
+		tab->point_len = 1;
+	else if (tab->str[tab->k] == '%')
 		tab->point_len = 1;
 	else
 	{
