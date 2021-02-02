@@ -6,7 +6,7 @@
 /*   By: vazra <vazra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 12:53:26 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/01 15:57:42 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/02 20:16:47 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ void	ft_convert_int(t_struct *tab)
 	}
 	while (tab->zero == '0' && tab->point && tab->width && i < tab->width_len - tab->len && !tab->dash && tab->point_len < 0)
 	{
+		if (tab->s[j] == '-')
+		{
+			ft_putchar_pf('-', tab);
+			j++;
+			k = -1;
+		}
 		ft_putchar_pf('0', tab);
 		i++;
 	}
