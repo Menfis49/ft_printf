@@ -6,7 +6,7 @@
 /*   By: vazra <vazra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 12:53:48 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/01 13:51:24 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/02 21:19:21 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	ft_convert_hexa(t_struct *tab)
 	ft_len_hexa(tab->num, tab);
 	while (!tab->dash && j < tab->width_len - tab->point_len && j < tab->width_len - tab->len)
 	{
-		if (tab->zero != '0' || tab->point)
-			ft_putchar_pf(' ', tab);
+		if (tab->zero != '0' || (tab->point && tab->point_len >= 0))
+				ft_putchar_pf(' ', tab);
 		else
 			ft_putchar_pf('0', tab);
 		j++;
