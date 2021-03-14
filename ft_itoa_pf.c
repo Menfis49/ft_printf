@@ -6,7 +6,7 @@
 /*   By: vazra <vazra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:00:06 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/01 13:19:59 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/01 13:28:38 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,26 @@ char	*ft_itoa_unsigned(unsigned int n, t_struct *tab)
 {
 	char				*str;
 	unsigned int		i;
+	unsigned int		sign;
 	unsigned long int	nb;
 
 	(void)tab;
+	sign = 0;
 	i = 0;
-	nb = n;
-	if (!(str = malloc(sizeof(*str) * (ft_intlen(nb) + 1))))
+	if (n < 0)
+	{
+		nb = n;
+		nb *= -1;
+		sign = 1;
+		i++;
+	}
+	else
+		nb = n;
+	if (!(str = malloc(sizeof(*str) * (ft_intlen(nb) + sign + 1))))
 		return (NULL);
-	ft_itoa_unsigned_fill(str, nb, ft_intlen(nb));
-	str[ft_intlen(nb)] = '\0';
+	if (sign == 1)
+		str[0] = '-';
+	ft_itoa_unsigned_fill(str + sign, nb, ft_intlen(nb));
+	str[ft_intlen(nb) + sign] = '\0';
 	return (str);
 }

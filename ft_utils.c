@@ -6,7 +6,7 @@
 /*   By: vazra <vazra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 12:54:53 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/01 13:04:13 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/04 17:03:26 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	ft_init_struct(t_struct *tab)
 	tab->point_len = 0;
 }
 
-void	ft_putchar_pf(char c, t_struct *data)
+void	ft_putchar_pf(char c, t_struct *tab)
 {
 	write(1, &c, 1);
-	data->ret++;
+	tab->ret++;
 }
 
-void	ft_putstr_pf(char *str, t_struct *data)
+void	ft_putstr_pf(char *str, t_struct *tab)
 {
 	int i;
 
@@ -38,7 +38,7 @@ void	ft_putstr_pf(char *str, t_struct *data)
 	while (str[i])
 	{
 		write(1, &str[i], 1);
-		data->ret++;
+		tab->ret++;
 		i++;
 	}
 }
@@ -56,11 +56,13 @@ int		ft_strlen_pf(const char *str)
 int		ft_atoi_pf(const char *str)
 {
 	int		i;
+	int		sign;
 	long	nb;
 
 	i = 0;
+	sign = 1;
 	nb = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 		nb = (nb * 10) + str[i++] - '0';
-	return (nb);
+	return (nb * sign);
 }

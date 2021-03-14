@@ -6,7 +6,7 @@
 /*   By: vazra <vazra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 12:53:37 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/01 13:04:45 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/03 17:22:45 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,26 @@ void	ft_adr_len(unsigned long nb, t_struct *tab)
 	tab->len++;
 }
 
+void	ft_convert_pointer2(t_struct *tab, int i, int j)
+{
+	ft_putstr_pf("0x", tab);
+	while (tab->point && j < tab->point_len - tab->len + 2)
+	{
+		ft_putchar_pf('0', tab);
+		j++;
+	}
+	if (tab->p == 0 && tab->point == 1 &&
+			(tab->dash_star == 1 || tab->point_len == 0))
+		;
+	else
+		ft_adr_put(tab->p, tab);
+	while (tab->dash && i < tab->width_len - tab->len)
+	{
+		ft_putchar_pf(' ', tab);
+		i++;
+	}
+}
+
 void	ft_convert_pointer(t_struct *tab)
 {
 	int i;
@@ -39,26 +59,13 @@ void	ft_convert_pointer(t_struct *tab)
 	tab->p = va_arg(tab->va, unsigned long);
 	ft_adr_len(tab->p, tab);
 	tab->len += 2;
-	if (tab->p == 0 && tab->point == 1 && (tab->dash_star == 1 || tab->point_len == 0))
+	if (tab->p == 0 && tab->point == 1 &&
+			(tab->dash_star == 1 || tab->point_len == 0))
 		tab->len--;
 	while (!tab->dash && i < tab->width_len - tab->len)
 	{
 		ft_putchar_pf(' ', tab);
 		i++;
 	}
-	ft_putstr_pf("0x", tab);
-	while (tab->point && j < tab->point_len - tab->len + 2)
-	{
-		ft_putchar_pf('0', tab);
-		j++;
-	}
-	if (tab->p == 0 && tab->point == 1 && (tab->dash_star == 1 || tab->point_len == 0))
-		;
-	else
-		ft_adr_put(tab->p, tab);
-	while (tab->dash && i < tab->width_len - tab->len)
-	{
-		ft_putchar_pf(' ', tab);
-		i++;
-	}
+	ft_convert_pointer2(tab, i, j);
 }

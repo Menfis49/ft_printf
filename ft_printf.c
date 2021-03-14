@@ -6,7 +6,7 @@
 /*   By: vazra <vazra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 12:50:04 by vazra             #+#    #+#             */
-/*   Updated: 2021/02/02 19:35:28 by vazra            ###   ########.fr       */
+/*   Updated: 2021/02/04 16:59:54 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,16 @@ void	ft_categorie(t_struct *tab)
 	ft_init_struct(tab);
 	tab->k++;
 	ft_flags(tab);
-	if ((tab->str[tab->k] >= '1' && tab->str[tab->k] <= '9') || tab->str[tab->k] == '*')
+	if ((tab->str[tab->k] >= '1' &&
+				tab->str[tab->k] <= '9') || tab->str[tab->k] == '*')
 		ft_width(tab);
 	if (tab->str[tab->k] == '.')
 		ft_point(tab);
-	if (tab->str[tab->k] == 'd' || tab->str[tab->k] == 'i' || tab->str[tab->k] == 'u')
+	if (tab->str[tab->k] == 'd' ||
+			tab->str[tab->k] == 'i' || tab->str[tab->k] == 'u')
 		ft_convert_int(tab);
-	else if (tab->str[tab->k] == 'c' || tab->str[tab->k] == 's' || tab->str[tab->k] == '%')
+	else if (tab->str[tab->k] == 'c' ||
+			tab->str[tab->k] == 's' || tab->str[tab->k] == '%')
 		ft_convert_char(tab);
 	else if (tab->str[tab->k] == 'x' || tab->str[tab->k] == 'X')
 		ft_convert_hexa(tab);
